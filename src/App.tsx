@@ -1,26 +1,23 @@
+// src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import RecipeSearch from './components/RecipeSearch';
+import RecipeList from './components/RecipeList';
+import { RecipeProvider } from './context/RecipeContext';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <RecipeProvider>
+      <div className="min-h-screen bg-gray-100">
+        <header className="bg-blue-500 text-white p-4 text-center">
+          <h1 className="text-3xl font-bold">Recipe Finder</h1>
+        </header>
+        <main className="p-4">
+          <RecipeSearch />
+          <RecipeList />
+        </main>
+      </div>
+    </RecipeProvider>
   );
-}
+};
 
 export default App;
